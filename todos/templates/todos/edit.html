@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Todo Lists
+{% endblock title %}
+{% block content %}
+  <header>
+  </header>
+  <main>
+    <div>
+      <h1>Update list</h1>
+      <form method = "post">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+        <button>Update</button>
+      </form>
+    </div>
+  </main>
+{% endblock content %}

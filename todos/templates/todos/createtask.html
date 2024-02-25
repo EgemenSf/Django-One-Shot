@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Todo Lists
+{% endblock title %}
+{% block content %}
+  <header>
+  </header>
+  <main>
+    <div>
+      <h1>Create a new item</h1>
+      <form method = "post">
+        {% csrf_token %}
+        {{ task_form.as_p }}
+        <button>Create</button>
+      </form>
+    </div>
+  </main>
+{% endblock content %}

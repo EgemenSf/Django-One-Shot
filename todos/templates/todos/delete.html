@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Todo Lists
+{% endblock title %}
+{% block content %}
+  <header>
+  </header>
+  <main>
+    <div>
+      <h1>Are you sure?</h1>
+      <form method = "post">
+        {% csrf_token %}
+        <button>Delete</button>
+      </form>
+    </div>
+  </main>
+{% endblock content %}

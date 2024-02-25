@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Todo Lists
+{% endblock title %}
+{% block content %}
+  <header>
+    <nav>
+      <a href="{% url "todo_list_list" %}">Main Page</a>
+    </nav>
+  </header>
+  <main>
+    <div>
+      <h1>Create a new list</h1>
+      <form method = "post">
+        {% csrf_token %}
+        {{ create_form.as_p }}
+        <button>Create</button>
+      </form>
+    </div>
+  </main>
+{% endblock content %}

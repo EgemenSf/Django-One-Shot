@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Scrumptious Recipes
+{% endblock title %}
+{% block content %}
+  <main>
+    <div>
+      <h1>{{ todo_list.name }}</h1>
+      <p>
+        <a href= "{% url "todo_list_update" todo_list.id %}">Edit</a>
+      </p>
+      <p>
+        <a href= "{% url "todo_list_delete" todo_list.id %}">Delete</a>
+      </p>
+      <h2>Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in todo_list.items.all %}
+            <tr>
+              <td>
+                <a href="{% url "todo_item_update" task.id %}">{{ task.task }}</a>
+              </td>
+              <td>{{ task.due_date|date:"N j, Y" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+{% endblock content %}
